@@ -1,0 +1,15 @@
+.entry {
+    position: relative;
+    transform: translate3d(var(--translate-x), var(--translate-y), 0);
+
+    .entryText {
+        pointer-events: none;
+        user-select: none;
+
+        font-size: 12px;
+        font-weight: 700;
+
+        text-anchor: middle;
+        fill: #fff;
+    }
+}

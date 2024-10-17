@@ -1,0 +1,35 @@
+.entryLegend {
+    cursor: pointer;
+
+    transform: translate3d(var(--translate-x), var(--translate-y), 0);
+
+    width: 100%;
+    max-width: 120px;
+    padding: 1px 0;
+
+    font-size: 14px;
+
+    &.accented {
+        color: white;
+        background-color: #333C;
+        border-radius: 3px;
+    }
+}
+
+@media all and (width < 1250px) {
+    .entryLegend {
+        font-size: 12px;
+    }
+}
+
+@media all and (width < 1140px) {
+    .entryLegend {
+        font-size: 10px;
+    }
+}
+
+@media all and (width < 880px) {
+    .entryLegend {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,97 @@
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 20px;
+
+    .section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        &.twoColumns {
+            display: grid;
+            grid-template:
+        'header header'
+        'left right'
+        / 1fr   1fr
+        ;
+        }
+
+        .sectionHeader {
+            grid-column: header;
+            font-size: 18px;
+
+            &.descriptionHeader {
+                font-size: 20px;
+            }
+        }
+
+        .sectionItem {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            padding: 2px 4px;
+
+            border-radius: 6px;
+
+            &:target {
+                color: white;
+                background-color: #333C;
+            }
+        }
+
+        .sectionItemTitle {
+            font-size: 16px;
+        }
+
+        .sectionItemText {
+            font-size: 14px;
+        }
+    }
+}
+
+@media all and (width < 870px) {
+    .description {
+        gap: 16px;
+
+        .section {
+            gap: 8px;
+
+            .sectionHeader {
+                font-size: 16px;
+
+                &.descriptionHeader {
+                    font-size: 18px;
+                }
+            }
+
+            .sectionItem {
+                gap: 4px;
+            }
+
+            .sectionItemTitle {
+                font-size: 14px;
+            }
+
+            .sectionItemText {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media all and (width < 425px) {
+    .description {
+        gap: 10px;
+
+        .section {
+            &.twoColumns {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
+

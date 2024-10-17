@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+
+    .title {
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .subTitle {
+        font-size: 14px;
+        color: #999;
+    }
+}
+
+@media all and (width < 870px) {
+    .header {
+        gap: 5px;
+
+        .title {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .subTitle {
+            font-size: 12px;
+            text-align: center;
+        }
+    }
+}
+
+@media all and (width < 540px) {
+    .header {
+        .title {
+            font-size: 20px;
+        }
+
+        .subTitle {
+            font-size: 10px;
+        }
+    }
+}

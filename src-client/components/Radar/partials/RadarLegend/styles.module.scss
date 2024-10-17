@@ -1,0 +1,30 @@
+.radarLegend {
+    display: flex;
+    grid-area: radarLegend;
+    gap: 5px;
+    align-items: baseline;
+    justify-content: center;
+
+    padding: 10px 0;
+}
+
+@media all and (width < 1024px) {
+    .radarLegend {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+        text-align: center;
+    }
+}
+
+@media all and (width < 880px) {
+   .radarLegend {
+        font-size: 12px;
+   }
+}
+
+@media all and (width < 540px) {
+   .radarLegend {
+       display: none;
+   }
+}

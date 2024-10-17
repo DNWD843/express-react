@@ -2,9 +2,10 @@
 import express, { Express } from 'express'
 // import helmet from 'helmet'
 
+import { router as apiRouter } from './routers/apiRouter'
 import { requestLogger } from './middleware/requestLogger'
-import { errorHandler } from './middleware/errorHandler'
 import { initFrontend } from './middleware/frontend'
+import { errorHandler } from './middleware/errorHandler'
 // import { getCorsOrigin } from '@common/utils/envConfig'
 // import { healthCheckRouter } from '@modules/healthCheck/healthCheckRoutes'
 // import { apiRouter } from './router'
@@ -27,6 +28,7 @@ server.use(express.urlencoded({ extended: true }))
 server.use(requestLogger())
 
 await initFrontend(server)
+server.use('/api', apiRouter)
 
 // Routes
 // app.use('/health-check', healthCheckRouter)

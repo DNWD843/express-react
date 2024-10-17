@@ -1,0 +1,27 @@
+.segmentLegend {
+    width: 100%;
+
+    .title {
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+@media all and (width < 870px) {
+    .segmentLegend {
+        .title {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .content {
+            gap: 0;
+        }
+    }
+}

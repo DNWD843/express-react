@@ -1,0 +1,31 @@
+.ringLegend {
+    fill: none;
+    stroke: #bbb;
+    stroke-width: 1;
+
+    .title {
+        transform: translate3d(var(--translate-x), var(--translate-y), 0);
+        margin: 16px 0 6px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+}
+
+@media all and (width < 870px) {
+    .ringLegend {
+        .title {
+            margin: 10px 0 2px;
+            text-align: center;
+        }
+
+        .content {
+            align-items: center;
+        }
+    }
+}

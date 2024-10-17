@@ -1,0 +1,44 @@
+include:
+  - project: ${BASE_PIPELINE_REPOSITORY_PREFIX}/java-base-pipeline
+    file: .gitlab-template.yml
+    ref: '1.1.4'
+
+docker_build:
+  image:
+    name: demank1/kaniko:1.24.7
+    entrypoint: [ "" ]
+  stage: docker_build
+  variables:
+    BASE_DOCKER_REPO: "$DOCKER_REGISTRY/erp/tech-radar"
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo $DOCKER_AUTH_CONFIG_RW > /kaniko/.docker/config.json
+    - /kaniko/executor --cleanup --context "$CI_PROJECT_DIR" --cache=true --destination "$BASE_DOCKER_REPO/radar:$TAG"
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: always
+    - if: $CI_COMMIT_TAG
+      variables:
+        TAG: "$CI_COMMIT_TAG"
+      when: always
+    - when: never
+  tags:
+    - yc-dev-k8s-radar
+
+radar-k8s_deploy:
+  extends: .kubernetes_helm_deploy
+  variables:
+    K8S_NAMESPACE: 'radar'
+    HELM_PROJECT_NAME: 'tech-radar'
+    HELM_CHART_VARIABLES_FILENAME: "values.yaml"
+    HELM_FLAGS: "--set image.tag=$TAG"
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: always
+    - if: $CI_COMMIT_TAG
+      variables:
+        TAG: "$CI_COMMIT_TAG"
+      when: always
+    - when: never
+  tags:
+    - yc-dev-k8s-radar

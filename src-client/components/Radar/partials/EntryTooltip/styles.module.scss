@@ -1,0 +1,41 @@
+.entryTooltip {
+    pointer-events: none;
+    user-select: none;
+
+    position: absolute;
+    top: calc(var(--radar-center-y) + var(--entry-y) - 20px);
+    left: calc(var(--radar-center-x) + var(--entry-x));
+    transform: translate3d(-50%, -50%, 0);
+
+    display: flex;
+    justify-content: center;
+
+    min-width: 100px;
+    padding: 2px 6px;
+
+    font-size: 14px;
+    color: white;
+
+    background-color: #333C;
+    border-radius: 3px;
+
+    &::after {
+        content: '';
+
+        position: absolute;
+        z-index: -1;
+        bottom: -3px;
+        transform: rotate(45deg);
+
+        width: 6px;
+        height: 6px;
+
+        background-color: #333C;
+    }
+}
+
+@media all and (width < 1250px) {
+    .entryTooltip {
+        font-size: 12px;
+    }
+}

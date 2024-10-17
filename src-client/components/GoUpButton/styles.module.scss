@@ -1,0 +1,61 @@
+.button {
+    cursor: pointer;
+
+    position: fixed;
+    right: 30px;
+    bottom: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    color: #9c9c9c;
+
+    opacity: .7;
+    background-color: #fff;
+    border: 1px solid #9c9c9c;
+    border-radius: 50%;
+
+
+    &::before {
+        content: '';
+
+        transform: rotate(45deg);
+
+        display: inline-block;
+
+        width: 10px;
+        height: 10px;
+        margin-top: 5px;
+
+        border: 2px solid #9c9c9c;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 2px;
+    }
+
+    &:hover {
+        opacity: 1;
+        background-color: #eee;
+
+        &::after {
+            content: 'Наверх';
+
+            position: absolute;
+            top: -30px;
+
+            display: block;
+
+            padding: 4px 8px;
+
+            font-size: 12px;
+
+            background-color: #fff;
+            border: 1px solid #9c9c9c;
+            border-radius: 2px;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+
+    width: 100%;
+    padding-top: 20%;
+
+    .title, .text {
+        color: #333C
+    }
+}
+
+@media all and (width < 870px) {
+    .title {
+        font-size: 16px;
+    }
+
+    .text {
+        font-size: 12px;
+    }
+}
